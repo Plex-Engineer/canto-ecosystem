@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  border-radius: 0.25rem;
+  border: 1px solid #404040;
+  background: #131313;
+
+  min-width: 1200px;
+  height: 1075px;
+  flex-shrink: 0;
+}
+
+.sidebar {
+  display: flex;
+  width: 212px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+}
+
+.main {
+}
