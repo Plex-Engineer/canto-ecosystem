@@ -5,6 +5,7 @@ import styles from "./selector.module.scss";
 import React from "react";
 interface Props {
   items: string[];
+  onChange: (value: string) => void;
 }
 
 const Selector = (props: Props) => {
@@ -17,6 +18,7 @@ const Selector = (props: Props) => {
           active={selected === idx}
           onClick={() => {
             setSelected(idx);
+            props.onChange(item);
           }}
         >
           {item}
