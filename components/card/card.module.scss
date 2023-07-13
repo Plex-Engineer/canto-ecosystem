@@ -1,0 +1,64 @@
+.card {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 4px;
+  //   aspect-ratio: 1.2;
+  padding: 16px;
+  gap: 10px;
+  height: 100%;
+  //   width: 300px;
+}
+
+.links {
+  display: flex;
+
+  gap: 4px;
+  img {
+    height: 24px;
+  }
+}
+.icon {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.title-row {
+  display: flex;
+  gap: 20px;
+}
+.title-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tags {
+  display: flex;
+  gap: 4px;
+}
+
+.desc {
+  flex: 1;
+  max-height: 120px;
+  height: 100%;
+  margin: 8px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.a {
+  text-decoration: none;
+}
+.chip {
+  background: rgba(195, 195, 195, 0.1);
+  border-radius: 4px;
+  padding: 6px 8px;
+  width: min-content;
+}
