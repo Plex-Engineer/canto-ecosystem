@@ -1,10 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+
 body {
   background-color: #1e1e1e;
 }
 
-// reset css
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "IBM Plex Mono", sans-serif;
+}
+
+input[type="search"] {
+  font-family: "IBM Plex Mono", sans-serif !important;
+  letter-spacing: "-0.01em";
+  line-height: "140%";
+
+  //   replace close image
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    background-image: url("/icons/search.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+//   change scroll color
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #757575;
 }
