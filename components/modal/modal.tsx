@@ -3,6 +3,7 @@ import styles from "./modal.module.scss";
 import React from "react";
 
 interface Props {
+  open: boolean;
   onClose: () => void;
   children: React.ReactNode;
   title?: string;
@@ -10,7 +11,7 @@ interface Props {
   height?: string;
 }
 
-const Modal = ({ onClose, children, title, width, height }: Props) => {
+const Modal = ({ onClose, children, title, width, height, open }: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   function handleClose(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -24,6 +25,9 @@ const Modal = ({ onClose, children, title, width, height }: Props) => {
   const modalContent = (
     <div className={styles.overlay} onClick={handleClose} ref={ref}>
       <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         className={styles.wrapper}
         style={{
           width: width ? width : "auto",
@@ -47,7 +51,7 @@ const Modal = ({ onClose, children, title, width, height }: Props) => {
   );
 
   return ReactDOM.createPortal(
-    modalContent,
+    open ? modalContent : null,
     document.querySelector("#modal-root")!
   );
 };
