@@ -49,11 +49,14 @@ const Modal = ({ onClose, children, title, width, height, open }: Props) => {
       </div>
     </div>
   );
-
-  return ReactDOM.createPortal(
-    open ? modalContent : null,
-    document.querySelector("#modal-root")!
-  );
+  if (open) {
+    return ReactDOM.createPortal(
+      modalContent,
+      document.querySelector("#modal-root")!
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Modal;
