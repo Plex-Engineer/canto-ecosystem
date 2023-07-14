@@ -5,9 +5,11 @@ import Card from "../card/card";
 import Selector from "../selector/selector";
 import styles from "./directory.module.scss";
 import Text from "../text/text";
+import Modal from "../modal/modal";
 
 interface Props {}
 const Directory = (props: Props) => {
+  const [isSubmitProjectOpen, setIsSubmitProjectOpen] = useState(false);
   const data = [
     {
       name: "Alto Market",
@@ -215,6 +217,16 @@ const Directory = (props: Props) => {
 
   return (
     <div className={styles.container}>
+      <Modal
+        open={isSubmitProjectOpen}
+        height="400px"
+        width="600px"
+        onClose={function (): void {
+          setIsSubmitProjectOpen(false);
+        }}
+      >
+        <Text>This is a text</Text>
+      </Modal>
       <div className={styles.sidebar}>
         <Selector
           items={extractedTags}
@@ -223,6 +235,13 @@ const Directory = (props: Props) => {
             setIsDirty(isDirty + 1);
           }}
         />
+        <button
+          onClick={() => {
+            setIsSubmitProjectOpen(true);
+          }}
+        >
+          submit a project
+        </button>
       </div>
       <div className={styles.main}>
         <input
