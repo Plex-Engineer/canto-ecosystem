@@ -42,3 +42,22 @@ input[type="search"] {
 ::-webkit-scrollbar-thumb:hover {
   background: #757575;
 }
+
+button,
+input[type="submit"] {
+  display: flex;
+  height: 46px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0 2rem;
+  gap: 16px;
+  border-radius: 4px;
+  background: #06fc99;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: #05d984;
+    cursor: pointer;
+  }
+}

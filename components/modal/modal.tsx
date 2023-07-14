@@ -35,15 +35,18 @@ const Modal = ({ onClose, children, title, width, height, open }: Props) => {
         }}
       >
         <div className={styles.modal}>
-          <div className={styles.header}>
-            <img
-              onClick={handleClose}
-              src="icons/close.svg"
-              alt="close"
-              height={20}
-            />
-          </div>
-          {title && <h3 className={styles.title}>{title}</h3>}
+          <img
+            className={styles.close}
+            onClick={handleClose}
+            src="icons/close.svg"
+            alt="close"
+            height={20}
+          />
+          {title && (
+            <div className={styles.header}>
+              <h3 className={styles.title}>{title}</h3>
+            </div>
+          )}
           <div className={styles.body}>{children}</div>
         </div>
       </div>

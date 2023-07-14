@@ -5,6 +5,7 @@ import Directory from "@/components/directory/directory";
 import Modal from "@/components/modal/modal";
 import { useEffect, useState } from "react";
 import { useScrollLock } from "@/utils/scrollLock";
+import IntegrateOnCanto from "@/sections/integrate";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,17 +21,18 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {isOpen && (
-        <Modal
-          onClose={() => {
-            setIsOpen(false);
-          }}
-          width="500px"
-          height="500px"
-        >
-          <Text>Modal</Text>
-        </Modal>
-      )}
+      <Modal
+        open={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+        width="600px"
+        height="500px"
+        title="Integrate on Canto"
+      >
+        <IntegrateOnCanto />
+      </Modal>
+
       <button
         onClick={() => {
           setIsOpen(true);
