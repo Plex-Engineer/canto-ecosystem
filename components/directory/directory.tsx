@@ -6,6 +6,7 @@ import Selector from "../selector/selector";
 import styles from "./directory.module.scss";
 import Text from "../text/text";
 import Modal from "../modal/modal";
+import SubmitProject from "@/sections/submit_project";
 
 interface Props {}
 const Directory = (props: Props) => {
@@ -219,13 +220,14 @@ const Directory = (props: Props) => {
     <div className={styles.container}>
       <Modal
         open={isSubmitProjectOpen}
-        height="400px"
+        // height="400px"
         width="600px"
+        title="Submit a project"
         onClose={function (): void {
           setIsSubmitProjectOpen(false);
         }}
       >
-        <Text>This is a text</Text>
+        <SubmitProject />
       </Modal>
       <div className={styles.sidebar}>
         <Selector
