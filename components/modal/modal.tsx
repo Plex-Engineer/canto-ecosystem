@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import styles from "./modal.module.scss";
-import React from "react";
+import React, { useEffect } from "react";
+import { useScrollLock } from "@/utils/scrollLock";
 
 interface Props {
   open: boolean;
@@ -14,6 +15,8 @@ interface Props {
 const Modal = ({ onClose, children, title, width, height, open }: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
+  const { lockScroll, unlockScroll } = useScrollLock();
+
   function handleClose(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     e.stopPropagation();
     ref.current?.classList.add(styles.fadeout);
@@ -21,6 +24,14 @@ const Modal = ({ onClose, children, title, width, height, open }: Props) => {
       onClose();
     }, 400);
   }
+
+  useEffect(() => {
+    if (open) {
+      lockScroll(8);
+    } else {
+      unlockScroll();
+    }
+  }, [open, lockScroll, unlockScroll]);
 
   const modalContent = (
     <div className={styles.overlay} onClick={handleClose} ref={ref}>
