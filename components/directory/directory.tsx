@@ -6,7 +6,7 @@ import Selector from "../selector/selector";
 import styles from "./directory.module.scss";
 import Text from "../text/text";
 import Modal from "../modal/modal";
-import SubmitProject from "@/sections/submit_project";
+import SubmitProject from "@/sections/sumbit_project/submit_project";
 
 interface Props {}
 const Directory = (props: Props) => {

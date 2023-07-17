@@ -4,7 +4,7 @@ import { useState } from "react";
 import Modal from "../modal/modal";
 import Text from "../text/text";
 import styles from "./navbar.module.scss";
-import IntegrateOnCanto from "@/sections/integrate";
+import IntegrateOnCanto from "@/sections/integrate_on_canto/integrate";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
