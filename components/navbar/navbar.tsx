@@ -5,22 +5,26 @@ import Modal from "../modal/modal";
 import Text from "../text/text";
 import styles from "./navbar.module.scss";
 import IntegrateOnCanto from "@/sections/integrate_on_canto/integrate";
+import Recommendation from "@/sections/recommendation/recommendation";
+
+type ModalType = "" | "integrate" | "recommend";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>(""); // ["", "integrate"
 
   return (
     <nav className={styles.navbar}>
       <Modal
-        open={isOpen}
+        open={modalType !== ""}
         onClose={() => {
-          setIsOpen(false);
+          setModalType(""); //setting it to empty string will close the modal
         }}
         width="600px"
         height="500px"
-        title="Integrate on Canto"
+        title={modalType === "integrate" ? "Integrate on Canto" : "Explore"}
       >
-        <IntegrateOnCanto />
+        {modalType === "integrate" && <IntegrateOnCanto />}
+        {modalType === "recommend" && <Recommendation />}
       </Modal>
       <Text type="silkscreen" color="white" size={26}>
         CEDC Directory
@@ -37,15 +41,20 @@ const NavBar = () => {
             Spotlight
           </Text>
         </li>
-        <li className={styles["nav-item"]}>
+        <li
+          className={styles["nav-item"]}
+          onClick={() => {
+            setModalType("recommend");
+          }}
+        >
           <Text type="silkscreen" color="white" size={14}>
-            I&apos;m feeling lucky
+            Explore
           </Text>
         </li>
         <li
           className={styles["nav-item"]}
           onClick={() => {
-            setIsOpen(true);
+            setModalType("integrate");
           }}
         >
           <Text type="silkscreen" color="white" size={14}>
