@@ -6,6 +6,7 @@ import Text from "../text/text";
 import styles from "./navbar.module.scss";
 import IntegrateOnCanto from "@/sections/integrate_on_canto/integrate";
 import Recommendation from "@/sections/recommendation/recommendation";
+import Link from "next/link";
 
 type ModalType = "" | "integrate" | "recommend";
 
@@ -36,11 +37,13 @@ const NavBar = () => {
             Ecosystem
           </Text>
         </li>
-        <li className={styles["nav-item"]}>
-          <Text type="silkscreen" color="white" size={14}>
-            Spotlight
-          </Text>
-        </li>
+        <Link href="/spotlight">
+          <li className={styles["nav-item"]}>
+            <Text type="silkscreen" color="white" size={14}>
+              Spotlight
+            </Text>
+          </li>
+        </Link>
         <li
           className={styles["nav-item"]}
           onClick={() => {
