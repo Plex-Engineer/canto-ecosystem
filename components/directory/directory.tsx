@@ -30,7 +30,7 @@ const Directory = (props: Props) => {
       site: "https://app.beefy.finance/",
       tags: "DeFi",
       imageUri:
-        "https://pbs.twimg.com/profile_images/1627305322720247811/eJK1OPTY_400x400.jpg",
+        "https://pbs.twimg.com/profile_images/1679102988122505216/ikFQUonK_400x400.jpg",
     },
     {
       name: "Cantoscan",
