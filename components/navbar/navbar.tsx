@@ -1,5 +1,5 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Modal from "../modal/modal";
 import Text from "../text/text";
@@ -11,8 +11,8 @@ import Link from "next/link";
 type ModalType = "" | "integrate" | "recommend";
 
 const NavBar = () => {
-  const [modalType, setModalType] = useState<ModalType>(""); // ["", "integrate"
-
+  const [modalType, setModalType] = useState<ModalType>("");
+  const pathname = usePathname();
   return (
     <nav className={styles.navbar}>
       <Modal
@@ -32,17 +32,25 @@ const NavBar = () => {
       </Text>
 
       <ul className={styles["nav-list"]}>
-        <li className={`${styles["nav-item"]} ${styles.active}`}>
+        <Link
+          href="/"
+          className={`${styles["nav-item"]} ${
+            pathname == "/" && styles.active
+          }`}
+        >
           <Text type="silkscreen" color="white" size={14}>
             Ecosystem
           </Text>
-        </li>
-        <Link href="/spotlight">
-          <li className={styles["nav-item"]}>
-            <Text type="silkscreen" color="white" size={14}>
-              Spotlight
-            </Text>
-          </li>
+        </Link>
+        <Link
+          href="/spotlight"
+          className={`${styles["nav-item"]} ${
+            pathname == "/spotlight" && styles.active
+          }`}
+        >
+          <Text type="silkscreen" color="white" size={14}>
+            Spotlight
+          </Text>
         </Link>
         <li
           className={styles["nav-item"]}
