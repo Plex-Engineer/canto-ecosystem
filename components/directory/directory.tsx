@@ -8,8 +8,7 @@ import Text from "../text/text";
 import Modal from "../modal/modal";
 import SubmitProject from "@/sections/sumbit_project/submit_project";
 
-interface Props {}
-const Directory = (props: Props) => {
+const Directory = () => {
   const [isSubmitProjectOpen, setIsSubmitProjectOpen] = useState(false);
   const data = [
     {
@@ -220,7 +219,6 @@ const Directory = (props: Props) => {
     <div className={styles.container}>
       <Modal
         open={isSubmitProjectOpen}
-        // height="400px"
         width="600px"
         title="Submit a project"
         onClose={function (): void {
