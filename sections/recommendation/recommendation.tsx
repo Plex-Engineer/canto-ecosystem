@@ -1,11 +1,9 @@
-import { use, useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import styles from "./recommendation.module.scss";
 import Text from "@/components/text/text";
-import Image from "next/image";
 import { Column, Row } from "@/components/layout/layout";
 
 const Recommendation = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const recommendations = [
     {
       name: "Alto Market",
@@ -179,22 +177,42 @@ const Recommendation = () => {
         "https://pbs.twimg.com/profile_images/1575033661057290241/DMEembZM_400x400.jpg",
     },
   ];
+
   const [recommendation, setRecommendation] =
     useState<(typeof recommendations)[0]>();
 
-  useEffect(() => {
-    setIsLoading(true);
+  const recommend = () => {
+    setPage("loading");
     setTimeout(() => {
       setRecommendation(
         recommendations[Math.floor(Math.random() * recommendations.length)]
       );
-      setIsLoading(false);
+      setPage("result");
     }, 600);
-  }, []);
+  };
+
+  const [page, setPage] = useState<"intro" | "loading" | "result">("intro");
 
   return (
     <div className={styles.container}>
-      {isLoading ? (
+      {page == "intro" ? (
+        <>
+          <Column gap={10}>
+            <div className={styles["img-box"]}>
+              {/* <img src="/images/section-3.png" alt="section-3" /> */}
+            </div>
+            <Text type="silkscreen">
+              Lorem ipsum dolor sit amet consectetur.
+            </Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur. Urna morbi neque quis
+              semper elementum quis euismod. Amet turpis felis felis id sit nunc
+              lacinia fermentum. Eleifend euismod non vel in malesuada viverra.
+            </Text>
+            <button onClick={recommend}>explore</button>
+          </Column>
+        </>
+      ) : page == "loading" ? (
         <div className={styles.loading}>
           <Text type="silkscreen" color="white" size={14}>
             Loading...
