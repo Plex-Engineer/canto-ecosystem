@@ -1,5 +1,6 @@
 import HighlightCard from "@/components/highlight_card/highlightCard";
 import styles from "./spotlight.module.scss";
+import TitleCard from "@/components/title_card/title_card";
 
 const Spotlight = () => {
   const data = [
@@ -25,6 +26,10 @@ const Spotlight = () => {
   ];
   return (
     <div className={styles.container}>
+      {/* <TitleCard
+        title="Canto's Spotlight"
+        subtitle="An overview of the apps and integrations."
+      /> */}
       <HighlightCard {...data[0]} />
       <HighlightCard {...data[1]} />
     </div>
