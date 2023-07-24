@@ -2,6 +2,7 @@ import NavBar from "@/components/navbar/navbar";
 import "./globals.scss";
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Silkscreen } from "next/font/google";
+import Footer from "@/components/footer/footer";
 
 export const metadata: Metadata = {
   title: "Canto EDC",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <div id="modal-root"></div>
+        <Footer />
       </body>
     </html>
   );
