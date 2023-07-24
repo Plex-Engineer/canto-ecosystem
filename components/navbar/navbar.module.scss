@@ -35,3 +35,17 @@
 .active {
   background-color: rgba(3, 81, 50, 0.555);
 }
+
+// mobile
+@media (max-width: 768px) {
+  .navbar {
+    min-height: 80px;
+  }
+  .nav-list {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .nav-item {
+    padding: 8px 12px;
+  }
+}
