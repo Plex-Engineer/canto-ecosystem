@@ -7,6 +7,7 @@ import styles from "./directory.module.scss";
 import Text from "../text/text";
 import Modal from "../modal/modal";
 import SubmitProject from "@/sections/sumbit_project/submit_project";
+import { Row } from "../layout/layout";
 
 const Directory = () => {
   const [isSubmitProjectOpen, setIsSubmitProjectOpen] = useState(false);
@@ -93,7 +94,7 @@ const Directory = () => {
     },
     {
       name: "Gumball",
-      desc: "GumBall Protocol is a Liquid NFT creation and trading hub. When an NFT collection is launched on GumBall Protocol, a corresponding amount of ERC20 tokens (GBTs) are also created for that collection.",
+      desc: "GumBall Protocol is a Liquid NFT creation and trading hub.(GBTs) are also created for that collection.",
       twitter: "https://twitter.com/GumBallProtocol",
       discord: "",
       site: "https://www.gumball.fi/",
@@ -143,7 +144,7 @@ const Directory = () => {
     },
     {
       name: "UniDex Exchange",
-      desc: "The meta-aggregator of everything in DeFi: charting data, perpetuals, swaps, limit-orders, trade data, and more everyday right from your wallet.",
+      desc: "The meta-aggregator of everything in DeFi: charting data, swaps, limit-orders, trade data.",
       twitter: "https://twitter.com/UniDexFinance",
       discord: "",
       site: "https://www.unidex.exchange/",
@@ -201,6 +202,8 @@ const Directory = () => {
   ];
 
   const [isDirty, setIsDirty] = useState(1);
+
+  const [page, setPage] = useState(1);
 
   const [search, setSearch] = useState("");
 
@@ -264,11 +267,32 @@ const Directory = () => {
           </div>
         ) : (
           <div className={styles["card-list"]}>
-            {projects.map((item) => (
+            {projects.slice(6 * (page - 1), 6 * page).map((item) => (
               <Card key={item.name} {...item} dirty={isDirty} />
             ))}
           </div>
         )}
+        <Row gap={40} align="center">
+          <button
+            onClick={() => {
+              if (page == 1) return;
+              setPage(page - 1);
+            }}
+          >
+            {"<"}
+          </button>
+          <Text>
+            {page} of {Math.ceil(projects.length / 6)}
+          </Text>
+          <button
+            onClick={() => {
+              if (page >= Math.ceil(projects.length / 6)) return;
+              setPage(page + 1);
+            }}
+          >
+            {">"}
+          </button>
+        </Row>
       </div>
     </div>
   );
