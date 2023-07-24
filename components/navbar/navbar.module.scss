@@ -6,6 +6,10 @@
   gap: 1.4rem;
   border-bottom: 1px solid #333;
   min-height: 120px;
+
+  @media screen and (max-width: 768px) {
+    padding: 2rem;
+  }
 }
 
 .nav-list {
